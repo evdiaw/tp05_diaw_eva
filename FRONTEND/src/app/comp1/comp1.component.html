@@ -1,0 +1,59 @@
+<div class="c1">
+
+    <h3>Formulaire client</h3>
+
+    <div [formGroup]="FormClient">
+        <label for="civilite">Civilité : </label>
+        <select [(ngModel)]="client.civilite" formControlName="civilite">
+            <option value="mme">Madame</option>
+            <option value="mr">Monsieur</option>
+            <option value="autre">Autre</option>
+        </select>
+        
+        <label for="prenom">Prenom : </label>
+        <input appOnlyLetters [(ngModel)]="client.prenom" formControlName="prenom"/>
+    
+        <label for="nom">Nom : </label>
+        <input appOnlyLetters [(ngModel)]="client.nom" formControlName="nom"/>
+    </div>
+
+    <div [formGroup]="FormClient">     
+        <label for="adresse">Adresse : </label>
+        <input [(ngModel)]="client.adresse" formControlName="adresse"/>
+
+        <label for="code_postal">Code postal : </label>
+        <input appOnlyNumbers maxSize ="4" [(ngModel)]="client.code_postal" formControlName="code_postal"/>
+    
+        <label for="ville">Ville : </label>
+        <input appOnlyLetters [(ngModel)]="client.ville" formControlName="ville"/>
+    </div>
+
+    <div [formGroup]="FormClient">     
+        <label for="telephone">telephone : </label>
+        <input appOnlyNumbers maxSize ="9" [(ngModel)]="client.telephone" formControlName="telephone"/>
+
+        <label for="email">Email : </label>
+        <input [(ngModel)]="client.email" formControlName="email"/>
+    </div>
+
+    <div [formGroup]="FormClient">     
+        <label for="login">Login : </label>
+        <input [(ngModel)]="client.login" formControlName="login"/>
+
+        <label for="password">Mot de passe : </label>
+        <input [(ngModel)]="client.password" formControlName="password"/>
+
+        <label for="password_conf">Confirmation du mot de passe : </label>
+        <input [(ngModel)]="client.password_conf" formControlName="password_conf"/>
+    </div>
+
+    <button type="button" class="btn btn-primary">Envoyer</button>
+    
+    <br>
+    <div>
+        <app-comp2 [client]="client"></app-comp2>
+    </div>
+
+    <br>
+
+</div>

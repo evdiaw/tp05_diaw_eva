@@ -1,0 +1,10 @@
+<div>
+    <h1>Panier</h1>
+
+    <div *ngFor="let produit of produits">
+        <ul>
+            <li>{{ produit.color }} {{ produit.type }} <button (click)="supprimerPanier(produit)">Supprimer du panier</button></li>
+        </ul>
+    </div>
+
+</div>

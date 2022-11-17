@@ -1,0 +1,28 @@
+<div class="c1">
+    <h1>Catalogue des produits</h1>
+
+    <label for="filtre">Filtrer par</label>
+    <div class="catalog_options">
+        <select [(ngModel)]="filtre" (change)="onChange($event)">
+            <option value=""></option>
+            <option value="color">Couleur</option>
+            <option value="type">Type</option>
+        </select>
+    </div>
+    
+
+    <app-search-bar [categorie]="'type'" [listeFiltree]="tabProduits" (filterResult)="updateCatalogue($event)"
+        (filterReset)="getCatalogue()">
+    </app-search-bar>
+
+    <div *ngFor="let produit of tabProduits">
+        <ul>
+            <li>{{ produit.color }} {{ produit.type }} 
+                <button (click)="ajouterPanier(produit)">Ajouter au panier</button>
+                <button [routerLink]="['/catalogue',produit.id]">Détails {{ produit.id }}</button>
+            </li>
+        </ul>
+    </div>
+
+</div>
+

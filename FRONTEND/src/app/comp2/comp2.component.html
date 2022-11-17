@@ -1,0 +1,26 @@
+<div class="c1">
+    
+    <h3>Recapitulatif</h3>
+
+    <div>
+        <p>Civilité : {{ client.civilite }}</p>
+        <p>Prénom : {{ client.prenom }}</p>
+        <p>Nom : {{ client.nom }}</p>
+        <p>Login : {{ client.login }}</p>
+    </div>
+
+    <div>
+        <p>Telephone international : {{ client.telephone | telephonePipe }}</p>
+        <p>Email : {{ client.email }}</p>
+        <p>Adresse : {{ client.adresse }} {{ client.code_postal }} {{ client.ville }}</p>
+    </div>
+
+    <div>
+        <p>Civilité : {{ client.civilite }}</p>
+        <p>Prénom : {{ client.prenom }}</p>
+        <p>Nom : {{ client.nom }}</p>
+    </div>
+    
+
+</div>
+    

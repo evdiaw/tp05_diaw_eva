@@ -1,0 +1,108 @@
+[
+    {
+        "id": 1,
+        "type": "dress",
+        "color": "pink"
+    },
+    {
+        "id": 2,
+        "type": "shorts",
+        "color": "blue"
+    },
+    {
+        "id": 3,
+        "type": "skirt",
+        "color": "green"
+    },
+    {
+        "id": 4,
+        "type": "dress",
+        "color": "yellow"
+    },
+    {
+        "id": 5,
+        "type": "skirt",
+        "color": "red"
+    },
+    {
+        "id": 6,
+        "type": "tshirt",
+        "color": "black"
+    },
+    {
+        "id": 7,
+        "type": "hat",
+        "color": "white"
+    },
+    {
+        "id": 8,
+        "type": "hat",
+        "color": "purple"
+    },
+    {
+        "id": 9,
+        "type": "hat",
+        "color": "orange"
+    },
+    {
+        "id": 10,
+        "type": "dress",
+        "color": "brown"
+    },
+    {
+        "id": 11,
+        "type": "dress",
+        "color": "grey"
+    },
+    {
+        "id": 12,
+        "type": "dress",
+        "color": "silver"
+    },
+    {
+        "id": 13,
+        "type": "dress",
+        "color": "gold"
+    },
+    {
+        "id": 14,
+        "type": "dress",
+        "color": "beige"
+    },
+    {
+        "id": 15,
+        "type": "dress",
+        "color": "maroon"
+    },
+    {
+        "id": 16,
+        "type": "dress",
+        "color": "navy"
+    },
+    {
+        "id": 17,
+        "type": "dress",
+        "color": "turquoise"
+    },
+    {
+        "id": 18,
+        "type": "dress",
+        "color": "lime"
+    },
+    {
+        "id": 19,
+        "type": "dress",
+        "color": "magenta"
+    },
+    {
+        "id": 20,
+        "type": "dress",
+        "color": "olive"
+    },
+    {
+        "id": 21,
+        "type": "dress",
+        "color":"black"
+    }
+
+]
