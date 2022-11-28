@@ -45,7 +45,9 @@ $app->get('/api/user', function (Request $request, Response $response, $args) {
 // APi d'authentification générant un JWT
 $app->post('/api/login', function (Request $request, Response $response, $args) {   
     $err=false;
-    $body = $request->getParsedBody();
+
+    $inputJSON = file_get_contents('php://input');
+    $body = json_decode( $inputJSON, TRUE ); 
     $login = $body ['login'] ?? "";
     $pass = $body ['pass'] ?? "";
 
@@ -58,7 +60,8 @@ $app->post('/api/login', function (Request $request, Response $response, $args) 
 
     if (!$err) {
             $response = createJwT ($response);
-            $data = array('nom' => 'toto', 'prenom' => 'titi');
+            $response = addHeaders($response);
+            $data = array('nom' => $login, 'password' => $pass);
             $response->getBody()->write(json_encode($data));
      } else {          
             $response = $response->withStatus(401);
@@ -82,6 +85,17 @@ $options = [
         return $response->withHeader("Content-Type", "application/json")->getBody()->write(json_encode($data));
     }
 ];
+
+function  addHeaders (Response $response) : Response {
+    $response = $response
+    ->withHeader("Content-Type", "application/json")
+    ->withHeader('Access-Control-Allow-Origin', ('https://deploy-tp-eva.onrender.com'))
+    ->withHeader('Access-Control-Allow-Headers', 'Content-Type,  Authorization')
+    ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS')
+    ->withHeader('Access-Control-Expose-Headers', 'Authorization');
+
+    return $response;
+}
 
 $app->add(new Tuupola\Middleware\JwtAuthentication($options));
 $app->run ();

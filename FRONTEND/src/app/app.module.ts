@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -12,6 +12,10 @@ import { ClientModule } from './client.module';
 import { HeaderComponent } from './header/header.component';
 import { NgxsModule } from '@ngxs/store';
 import { PanierState } from './state/panier-state';
+import { ApiHttpInterceptor } from './apiHttpInterceptor';
+import { CatalogueService } from './catalogue.service';
+import { ClientService } from './client.service';
+import { LoginService } from './login.service';
 
 const appRoutes: Routes = [
   { path: 'accueil', component: AccueilComponent },
@@ -41,7 +45,14 @@ const appRoutes: Routes = [
 
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ApiHttpInterceptor,
+      multi: true,
+      deps: [LoginService, CatalogueService, ClientService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

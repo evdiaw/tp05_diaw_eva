@@ -1,7 +1,9 @@
 <div>     
     <label for="login">Login : </label>
-    <input/>
+    <input [ngModel]="login">
 
     <label for="password">Mot de passe : </label>
-    <input/>
+    <input [ngModel]="password">
+
+    <button (click)="connexion">Envoyer</button>
 </div>
